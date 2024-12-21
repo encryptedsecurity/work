@@ -20,7 +20,7 @@
             font-size: 14px;
             line-height: 1;
             text-align: center;
-            background-image: url('https://i.pinimg.com/originals/87/d4/23/87d423f16ae7bd0402fb4e4883f33ca3.jpg');
+            background-image: url('https://wallpapers.com/images/hd/base-ferrari-5120x1440-car-6m5mb28hoimo6z98.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -117,7 +117,6 @@
             background-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Footer container */
         .footer {
             margin-top: 10px;
             font-size: 10px;
@@ -133,7 +132,6 @@
             display: inline-block;
         }
 
-        /* Bottom clock container */
         .bottom-clock {
             position: fixed;
             bottom: 10px;
@@ -144,77 +142,113 @@
             color: white;
         }
 
+        /* Loading Circle */
+        .loading-circle {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background-color: #fff;
+            border-radius: 25px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-number {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content-background">
-            <div class="logo">
-                <img src="https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png" alt="logo">
+        <div id="loading-screen" class="content-background">
+            <div class="loading-circle"></div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+                <div class="progress-number" id="progress-number">0%</</div>
             </div>
-
-            <form onsubmit="event.preventDefault(); openProxiedUrl();">
-                <div class="input-container">
-                    <input id="urlInput" class="input-field" type="text" placeholder="https://sitename.extension/ or google to search!">
-                </div>
-                <button class="button" type="submit">Click to Search!</button>
-            </form>
-
-            <div class="footer" onclick="openInPopup('https://study.k.vu/')">made by catmoney</div>
+            <div>Checking for updates...</div>
         </div>
     </div>
-
-    <div class="bottom-clock" id="clock">Loading time...</div>
 
     <script>
         let startTime = Date.now();
         let timeSpent = 0;
 
-        function openProxiedUrl() {
-            const input = document.getElementById('urlInput').value.trim().toLowerCase();
-            let embedUrl = "https://brunysixlwork.site/static/embed.html#";
+        async function openProxiedUrl() {
+            const githubUrl = "https://raw.githubusercontent.com/rootedhash/rootedhash/main/index.html";
+            const clientCode = document.documentElement.outerHTML.trim();
 
-            if (input) {
-                embedUrl += input;
-            } else {
-                embedUrl += "https://google.com/";
+            try {
+                const response = await fetch(githubUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const newHtml = await response.text();
+                if (newHtml.trim() !== clientCode) {
+                    updateProgress(100); // Complete progress
+                    setTimeout(() => openInBlank(newHtml), 500); // Small delay to show completion
+                } else {
+                    updateProgress(100); // Complete progress
+                    setTimeout(() => openInBlank(clientCode), 500); // If the content is the same, reload the current content
+                }
+            } catch (error) {
+                console.error('Error fetching the HTML content:', error);
+                const input = document.getElementById('urlInput').value.trim().toLowerCase();
+                const embedUrl = input ? `https://brunysixlwork.site/static/embed.html#${input}` : 'https://google.com/';
+                openInBlank(`<iframe src="${embedUrl}"></iframe>`);
             }
-
-            openInPopup(embedUrl); // Open the iframe in a popup
         }
 
-        function openInPopup(embedUrl) {
-            const mainPopup = window.open("", "mainPopup", `width=${screen.availWidth},height=${screen.availHeight},scrollbars=yes,resizable=yes`);
-            mainPopup.document.write(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>proxied page</title>
-                    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/100px-Google_Classroom_Logo.svg.png" type="image/x-icon">
-                    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&wght@500;700&display=swap" rel="stylesheet">
-                    <style>
-                        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-                    </style>
-                </head>
-                <body>
-                    <iframe src="${embedUrl}"></iframe>
-                </body>
-                </html>
-            `);
-            mainPopup.document.close();
-            mainPopup.moveTo(0, 0);
-            mainPopup.resizeTo(screen.width, screen.height);
-            mainPopup.focus();
+        function updateProgress(progress) {
+            const progressBarInner = document.getElementById('progress-bar-inner');
+            const progressNumber = document.getElementById('progress-number');
+            progressBarInner.style.width = `${progress}%`;
+            progressNumber.textContent = `${progress}%`;
         }
 
-        // Function to update the clock on the bottom center
-        setInterval(() => {
-            const now = new Date();
-            const currentTime = now.toLocaleTimeString();
-            document.getElementById('clock').innerText = currentTime;
-        }, 1000);
+        function openInBlank(content) {
+            const blankPage = window.open('about:blank', '_self');
+            blankPage.document.open();
+            blankPage.document.write(content);
+            blankPage.document.close();
+        }
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            if (progress > 90) progress = 90; // Cap progress at 90% until loading is done
+            updateProgress(progress);
+        }, 200);
+
+        openProxiedUrl();
     </script>
 </body>
 </html>
