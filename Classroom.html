@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Code Viewer</title>
+    <style>
+        /* Remove default margin and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Make the iframe take up the full screen */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // GitHub raw file URL
+        const githubRawUrl = 'https://raw.githubusercontent.com/rootedhash/rootedhash/main/index.html';
+
+        fetch(githubRawUrl)
+            .then(response => response.text())
+            .then(code => {
+                // Create a new iframe and set its content
+                const iframe = document.createElement('iframe');
+                iframe.srcdoc = code;
+                document.body.appendChild(iframe); // Append iframe to the body
+            })
+            .catch(error => {
+                document.body.innerHTML = '<p>Error loading code. Please try again later.</p>';
+                console.error('Error fetching code from GitHub:', error);
+            });
+    </script>
+
+</body>
+</html>
