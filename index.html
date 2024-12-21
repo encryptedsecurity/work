@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>securlyproxy</title>
-    <link href="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" rel="icon" type="image/x-icon">
+    <title>Google Classroom</title>
+    <link href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/100px-Google_Classroom_Logo.svg.png" rel="icon" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@500;700&display=swap');
 
@@ -20,7 +20,7 @@
             font-size: 14px;
             line-height: 1;
             text-align: center;
-            background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FMath-Mathematics-Formula-Wallpaper-for-PC.jpg&f=1&nofb=1&ipt=4383cb060092320865c481b757e6b028e18015c0c91ef52c35acc3b8cc47dadb&ipo=images');
+            background-image: url('https://i.pinimg.com/originals/87/d4/23/87d423f16ae7bd0402fb4e4883f33ca3.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -32,17 +32,17 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 100%; /* Ensures the container takes full height */
+            height: 100%;
             position: relative;
         }
 
         .content-background {
-            background-color: rgba(0, 0, 0, 0.9); /* Full black background */
+            background-color: rgba(0, 0, 0, 0.9);
             border-radius: 25px;
             padding: 40px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Ensure everything inside is centered */
+            align-items: center;
             justify-content: center;
             width: 90%;
             max-width: 500px;
@@ -50,39 +50,39 @@
         }
 
         .logo {
-            width: 120px; /* Set the size of the logo */
-            height: 120px; /* Set the size of the logo */
+            width: 120px;
+            height: 120px;
             background-color: black;
             border-radius: 50%;
-            margin-bottom: 30px; /* Adds space below the logo */
+            margin-bottom: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .logo img {
-            width: 100px; /* Adjust size as needed */
+            width: 100px;
             height: 100px;
             border-radius: 50%;
         }
 
         .input-container {
-            margin-bottom: 30px; /* Increased space below the input */
+            margin-bottom: 30px;
             width: 100%;
             background-color: transparent;
             border-radius: 25px;
         }
 
         .input-field {
-            padding: 25px 35px; /* Increased padding for larger field */
+            padding: 5px 5px;
             width: 100%;
             border: none;
-            border-radius: 25px;
-            font-size: 16px; /* Increased font size */
+            border-radius: 0px;
+            font-size: 17px;
             background-color: transparent;
             color: #fff;
             text-align: center;
-            font-weight: 500;
+            font-weight: 900;
             font-family: 'Albert Sans', sans-serif;
             line-height: 1;
             transition: width 0.5s ease-in-out;
@@ -93,43 +93,55 @@
         }
 
         .button {
-            padding: 12px 25px; /* Adjusted button size */
+            padding: 2px 2px;
             background-color: black;
             color: #fff;
             border-radius: 25px;
-            font-size: 16px; /* Increased font size */
+            font-size: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-bottom: 20px; /* Added margin below button */
+            margin-bottom: 20px;
             font-weight: 700;
             text-align: center;
             line-height: 1;
             background-color: black;
-            border-radius: 25px;
+            border-radius: 0px;
             border: none;
             color: #fff;
             font-family: 'Albert Sans', sans-serif;
             display: inline-block;
-            padding: 8px 15px; /* Adjusted padding for smaller text */
+            padding: 0px 0px;
         }
 
         .button:hover {
             background-color: rgba(255, 255, 255, 0.4);
         }
 
+        /* Footer container */
         .footer {
-            margin-top: 20px; /* Increased margin for the footer */
-            font-size: 12px; /* Smaller footer text */
+            margin-top: 10px;
+            font-size: 10px;
             font-weight: 700;
             cursor: pointer;
             font-family: 'Albert Sans', sans-serif;
             line-height: 1;
             background-color: black;
-            border-radius: 25px;
-            padding: 8px 15px; /* Adjusted padding for smaller text */
-            color: #fff; /* Set footer text to bright white */
-            border: none; /* Remove border */
-            display: inline-block; /* Make it a block element to center it */
+            border-radius: 5px;
+            padding: 15px 0px;
+            color: #fff;
+            border: none;
+            display: inline-block;
+        }
+
+        /* Bottom clock container */
+        .bottom-clock {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
         }
 
     </style>
@@ -137,25 +149,40 @@
 <body>
     <div class="container">
         <div class="content-background">
-            <!-- Logo Section -->
             <div class="logo">
-                <img src="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" alt="logo">
+                <img src="https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png" alt="logo">
             </div>
 
-            <!-- Form Section -->
-            <form onsubmit="event.preventDefault(); openInPopup('https://brunysixlwork.site/static/embed.html#https://google.com');">
+            <form onsubmit="event.preventDefault(); openProxiedUrl();">
                 <div class="input-container">
                     <input id="urlInput" class="input-field" type="text" placeholder="https://sitename.extension/ or google to search!">
                 </div>
                 <button class="button" type="submit">Click to Search!</button>
             </form>
 
-            <!-- Footer Section -->
             <div class="footer" onclick="openInPopup('https://study.k.vu/')">made by catmoney</div>
         </div>
     </div>
 
+    <div class="bottom-clock" id="clock">Loading time...</div>
+
     <script>
+        let startTime = Date.now();
+        let timeSpent = 0;
+
+        function openProxiedUrl() {
+            const input = document.getElementById('urlInput').value.trim().toLowerCase();
+            let embedUrl = "https://brunysixlwork.site/static/embed.html#";
+
+            if (input) {
+                embedUrl += input;
+            } else {
+                embedUrl += "https://google.com/";
+            }
+
+            openInPopup(embedUrl); // Open the iframe in a popup
+        }
+
         function openInPopup(embedUrl) {
             const mainPopup = window.open("", "mainPopup", `width=${screen.availWidth},height=${screen.availHeight},scrollbars=yes,resizable=yes`);
             mainPopup.document.write(`
@@ -165,33 +192,14 @@
                     <meta charset="utf-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>proxied page</title>
-                    <link rel="icon" href="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" type="image/x-icon">
+                    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/100px-Google_Classroom_Logo.svg.png" type="image/x-icon">
                     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&wght@500;700&display=swap" rel="stylesheet">
                     <style>
-                        body, html {
-                            margin: 0;
-                            height: 100%;
-                            width: 100%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            font-family: 'Albert Sans', sans-serif;
-                            font-size: 14px;
-                            line-height: 1;
-                            font-weight: 700;
-                        }
-                        iframe {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            border: none;
-                        }
+                        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
                     </style>
                 </head>
                 <body>
-                    <iframe src="` + embedUrl + `"></iframe>
+                    <iframe src="${embedUrl}"></iframe>
                 </body>
                 </html>
             `);
@@ -199,8 +207,14 @@
             mainPopup.moveTo(0, 0);
             mainPopup.resizeTo(screen.width, screen.height);
             mainPopup.focus();
-            window.close();
         }
+
+        // Function to update the clock on the bottom center
+        setInterval(() => {
+            const now = new Date();
+            const currentTime = now.toLocaleTimeString();
+            document.getElementById('clock').innerText = currentTime;
+        }, 1000);
     </script>
 </body>
 </html>
