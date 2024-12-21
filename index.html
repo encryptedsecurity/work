@@ -20,7 +20,7 @@
             font-size: 14px;
             line-height: 1;
             text-align: center;
-            background-image: url('https://i.pinimg.com/originals/87/d4/23/87d423f16ae7bd0402fb4e4883f33ca3.jpg');
+            background-image: url('https://github.com/rootedhash/rootedhash/blob/main/black_ferrari_sf90_stradale_car_4k_8k_hd_cars-2560x1440-2828259178.jpg?raw=true');
             background-size: cover;
             background-position: center;
         }
@@ -47,6 +47,8 @@
             width: 90%;
             max-width: 500px;
             text-align: center;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
         }
 
         .logo {
@@ -117,7 +119,6 @@
             background-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Footer container */
         .footer {
             margin-top: 10px;
             font-size: 10px;
@@ -133,7 +134,6 @@
             display: inline-block;
         }
 
-        /* Bottom clock container */
         .bottom-clock {
             position: fixed;
             bottom: 10px;
@@ -144,22 +144,68 @@
             color: white;
         }
 
+        .loading-circle {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background-color: black;
+            border-radius: 25px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-number {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content-background">
+        <div id="loading-screen" class="content-background">
+            <div class="loading-circle"></div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+                <div class="progress-number" id="progress-number">0%</div>
+            </div>
+            <div>Checking for updates...</div>
+        </div>
+        <div id="main-content" class="content-background" style="display: none;">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png" alt="logo">
             </div>
-
             <form onsubmit="event.preventDefault(); openProxiedUrl();">
                 <div class="input-container">
                     <input id="urlInput" class="input-field" type="text" placeholder="https://sitename.extension/ or google to search!">
                 </div>
                 <button class="button" type="submit">Click to Search!</button>
             </form>
-
             <div class="footer" onclick="openInPopup('https://study.k.vu/')">made by catmoney</div>
         </div>
     </div>
@@ -167,8 +213,28 @@
     <div class="bottom-clock" id="clock">Loading time...</div>
 
     <script>
-        let startTime = Date.now();
-        let timeSpent = 0;
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 5;
+            updateProgress(progress);
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.opacity = 0;
+                    setTimeout(() => {
+                        document.getElementById('loading-screen').style.display = 'none';
+                    }, 500);
+                    document.getElementById('main-content').style.display = 'block';
+                }, 500);
+            }
+        }, 300);
+
+        function updateProgress(progress) {
+            const progressBarInner = document.getElementById('progress-bar-inner');
+            const progressNumber = document.getElementById('progress-number');
+            progressBarInner.style.width = `${progress}%`;
+            progressNumber.textContent = `${progress}%`;
+        }
 
         function openProxiedUrl() {
             const input = document.getElementById('urlInput').value.trim().toLowerCase();
