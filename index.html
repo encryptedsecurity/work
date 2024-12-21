@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>securlyproxy</title>
-    <link href="https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png" rel="icon" type="image/x-icon">
+    <link href="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" rel="icon" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@500;700&display=swap');
+
         body, html {
             height: 100%;
             width: 100%;
@@ -14,173 +15,150 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #000;
-            color: #d3d3d3;
             font-family: 'Albert Sans', sans-serif;
             font-weight: 500;
             font-size: 14px;
             line-height: 1;
             text-align: center;
+            background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FMath-Mathematics-Formula-Wallpaper-for-PC.jpg&f=1&nofb=1&ipt=4383cb060092320865c481b757e6b028e18015c0c91ef52c35acc3b8cc47dadb&ipo=images');
+            background-size: cover;
+            background-position: center;
         }
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+
         .container {
-            text-align: center;
             z-index: 1;
-        }
-        .input-container {
-            margin-bottom: 20px;
-        }
-        .input-field {
-            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            max-width: 900px;
-            border: 2px solid #000;
+            height: 100%; /* Ensures the container takes full height */
+            position: relative;
+        }
+
+        .content-background {
+            background-color: rgba(0, 0, 0, 0.9); /* Full black background */
             border-radius: 25px;
-            font-size: 14px;
-            background-color: transparent;
-            color: #d3d3d3;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensure everything inside is centered */
+            justify-content: center;
+            width: 90%;
+            max-width: 500px;
             text-align: center;
-            transition: width 0.5s ease-in-out;
+        }
+
+        .logo {
+            width: 120px; /* Set the size of the logo */
+            height: 120px; /* Set the size of the logo */
+            background-color: black;
+            border-radius: 50%;
+            margin-bottom: 30px; /* Adds space below the logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust size as needed */
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .input-container {
+            margin-bottom: 30px; /* Increased space below the input */
+            width: 100%;
+            background-color: transparent;
+            border-radius: 25px;
+        }
+
+        .input-field {
+            padding: 25px 35px; /* Increased padding for larger field */
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px; /* Increased font size */
+            background-color: transparent;
+            color: #fff;
+            text-align: center;
             font-weight: 500;
             font-family: 'Albert Sans', sans-serif;
             line-height: 1;
+            transition: width 0.5s ease-in-out;
         }
+
         .input-field:focus {
             outline: none;
         }
+
+        .button {
+            padding: 12px 25px; /* Adjusted button size */
+            background-color: black;
+            color: #fff;
+            border-radius: 25px;
+            font-size: 16px; /* Increased font size */
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px; /* Added margin below button */
+            font-weight: 700;
+            text-align: center;
+            line-height: 1;
+            background-color: black;
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-family: 'Albert Sans', sans-serif;
+            display: inline-block;
+            padding: 8px 15px; /* Adjusted padding for smaller text */
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
         .footer {
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 20px; /* Increased margin for the footer */
+            font-size: 12px; /* Smaller footer text */
             font-weight: 700;
             cursor: pointer;
             font-family: 'Albert Sans', sans-serif;
             line-height: 1;
+            background-color: black;
+            border-radius: 25px;
+            padding: 8px 15px; /* Adjusted padding for smaller text */
+            color: #fff; /* Set footer text to bright white */
+            border: none; /* Remove border */
+            display: inline-block; /* Make it a block element to center it */
         }
+
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
     <div class="container">
-        <form onsubmit="event.preventDefault(); openProxiedUrl();">
-            <div class="input-container">
-                <input id="urlInput" class="input-field" type="text" placeholder="Type your search or URL">
+        <div class="content-background">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" alt="logo">
             </div>
-        </form>
-        <div class="footer" onclick="openClickmoneyUrl()">made by catmoney</div>
+
+            <!-- Form Section -->
+            <form onsubmit="event.preventDefault(); openInPopup('https://brunysixlwork.site/static/embed.html#https://google.com');">
+                <div class="input-container">
+                    <input id="urlInput" class="input-field" type="text" placeholder="https://sitename.extension/ or google to search!">
+                </div>
+                <button class="button" type="submit">Click to Search!</button>
+            </form>
+
+            <!-- Footer Section -->
+            <div class="footer" onclick="openInPopup('https://study.k.vu/')">made by catmoney</div>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 100,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.8,
-                    "random": false
-                },
-                "size": {
-                    "value": 10,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": false
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 3,
-                    "direction": "bottom",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-
-        function openProxiedUrl() {
-            const input = document.getElementById('urlInput').value.trim().toLowerCase();
-            let embedUrl;
-            if (input.includes('google')) {
-                embedUrl = "https://brunysixlwork.site/static/embed.html#https://google.com/";
-            } else if (input.startsWith("https://") && input.endsWith("/")) {
-                embedUrl = "https://brunysixlwork.site/static/embed.html#" + input;
-            } else {
-                alert("Please enter a valid URL starting with https:// and ending with /.");
-                return;
-            }
-            openInPopup(embedUrl);
-        }
-
-        function openClickmoneyUrl() {
-            const embedUrl = "https://study.k.vu/";
-            openInPopup(embedUrl);
-        }
-
         function openInPopup(embedUrl) {
-            const popup = window.open("", "popupWindow", "scrollbars=yes");
-            popup.document.write(`
+            const mainPopup = window.open("", "mainPopup", `width=${screen.availWidth},height=${screen.availHeight},scrollbars=yes,resizable=yes`);
+            mainPopup.document.write(`
                 <!DOCTYPE html>
                 <html lang="en">
                 <head>
@@ -189,15 +167,39 @@
                     <title>proxied page</title>
                     <link rel="icon" href="https://github.com/brunysixlwork/BrunysIXLWork.github.io/blob/main/static/images/logo.png?raw=true" type="image/x-icon">
                     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&wght@500;700&display=swap" rel="stylesheet">
+                    <style>
+                        body, html {
+                            margin: 0;
+                            height: 100%;
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-family: 'Albert Sans', sans-serif;
+                            font-size: 14px;
+                            line-height: 1;
+                            font-weight: 700;
+                        }
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    </style>
                 </head>
-                <body style="margin:0;font-family: 'Albert Sans', sans-serif; font-size: 14px; line-height: 1; font-weight: 700;">
-                    <iframe src="` + embedUrl + `" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe>
+                <body>
+                    <iframe src="` + embedUrl + `"></iframe>
                 </body>
                 </html>
             `);
-            popup.document.close();
-            popup.moveTo(0, 0);
-            popup.resizeTo(screen.width, screen.height);
+            mainPopup.document.close();
+            mainPopup.moveTo(0, 0);
+            mainPopup.resizeTo(screen.width, screen.height);
+            mainPopup.focus();
+            window.close();
         }
     </script>
 </body>
