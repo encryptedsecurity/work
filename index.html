@@ -16,243 +16,139 @@
             justify-content: center;
             align-items: center;
             font-family: 'Albert Sans', sans-serif;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 1;
-            text-align: center;
-            background-image: url('https://images.unsplash.com/photo-1609358781127-bc382d52ae49?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fHww');
+            background-image: url('https://wallpapers.com/images/hd/amoled-desktop-vs012u4wv2sxrww8.jpg');
             background-size: cover;
             background-position: center;
         }
 
         .container {
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .content-background {
-            background-color: rgba(0, 0, 0, 0.9);
-            border-radius: 25px;
-            padding: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 90%;
             max-width: 500px;
-            text-align: center;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            background-color: black;
-            border-radius: 50%;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Center the logo using flexbox */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .logo img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-
-        .input-container {
-            margin-bottom: 30px;
-            width: 100%;
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.9);
             border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            color: white;
         }
 
         .input-field {
-            padding: 5px 5px;
             width: 100%;
+            padding: 10px;
             border: none;
-            border-radius: 0px;
-            font-size: 17px;
-            background-color: transparent;
-            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
             text-align: center;
-            font-weight: 900;
-            font-family: 'Albert Sans', sans-serif;
-            line-height: 1;
-            transition: width 0.5s ease-in-out;
+            border-radius: 10px;
         }
 
         .input-field:focus {
             outline: none;
         }
 
-        .button {
-            padding: 2px 2px;
-            background-color: black;
-            color: #fff;
-            border-radius: 25px;
-            font-size: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
-            line-height: 1;
-            background-color: black;
-            border-radius: 0px;
-            border: none;
-            color: #fff;
-            font-family: 'Albert Sans', sans-serif;
-            display: inline-block;
-            padding: 0px 0px;
+        .blocked-message {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
         }
 
-        .button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .footer {
-            margin-top: 10px;
-            font-size: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: 'Albert Sans', sans-serif;
-            line-height: 1;
-            background-color: black;
-            border-radius: 5px;
-            padding: 15px 0px;
-            color: #fff;
-            border: none;
-            display: inline-block;
-        }
-
-        .bottom-clock {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 16px;
-            font-weight: 700;
+        .popup-message {
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
-        }
-
-        .loading-circle {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            margin: 10px 0;
-            position: relative;
-        }
-
-        .progress-bar-inner {
-            height: 100%;
-            width: 0;
-            background-color: black;
-            border-radius: 25px;
-            transition: width 0.4s ease;
-        }
-
-        .progress-number {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
             text-align: center;
-            line-height: 20px;
-            color: #fff;
+            display: none;
+        }
+
+        .popup-message button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .popup-message button:hover {
+            background-color: darkred;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="loading-screen" class="content-background">
-            <div class="loading-circle"></div>
-            <div class="progress-bar">
-                <div class="progress-bar-inner" id="progress-bar-inner"></div>
-                <div class="progress-number" id="progress-number">0%</div>
-            </div>
-            <div>Checking for updates...</div>
-        </div>
-        <div id="main-content" class="content-background" style="display: none;">
-            <div class="logo">
-                <img src="https://media.discordapp.net/attachments/1233881503923179572/1319497947104411700/IMG_6771.jpg?ex=676827f9&is=6766d679&hm=d403df309bf81a700f5e0d4c52b38a834395cd92c20d04a663e1f88fe50f508e&=&format=webp&width=723&height=700" alt="logo">
-            </div>
-            <form onsubmit="event.preventDefault(); openProxiedUrl();">
-                <div class="input-container">
-                    <input id="urlInput" class="input-field" type="text" placeholder="https://sitename.extension/">
-                </div>
-                <button class="button" type="submit">games! ( not working )</button>
-            </form>
-            <div class="footer" onclick="openInPopup('https://study.k.vu/')">made by catmoney</div>
-        </div>
+        <input id="urlInput" class="input-field" type="text" placeholder="Enter URL (e.g., https://example.com)">
     </div>
 
-    <div class="bottom-clock" id="clock">Loading time...</div>
+    <div id="feedback" class="blocked-message" style="display: none;"></div>
+    <div id="popup" class="popup-message">
+        <p>The website <span id="blocked-site-name"></span> is blocked. If you think this is a mistake, contact @infiltrace on Discord.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
 
     <script>
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += 5;
-            updateProgress(progress);
-            if (progress >= 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    document.getElementById('loading-screen').style.opacity = 0;
-                    setTimeout(() => {
-                        document.getElementById('loading-screen').style.display = 'none';
-                    }, 500);
-                    document.getElementById('main-content').style.display = 'block';
-                }, 500);
-            }
-        }, 300);
+        let blockedDomains = [];
 
-        function updateProgress(progress) {
-            const progressBarInner = document.getElementById('progress-bar-inner');
-            const progressNumber = document.getElementById('progress-number');
-            progressBarInner.style.width = `${progress}%`;
-            progressNumber.textContent = `${progress}%`;
+        // Fetch blocked domains from the provided URL
+        async function fetchBlockedDomains() {
+            try {
+                const response = await fetch("https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/websitesblocked.txt");
+                const text = await response.text();
+                blockedDomains = text.split(/\r?\n/).filter(Boolean); // Split by newline and filter out empty lines
+                console.log("Blocked Domains Loaded:", blockedDomains); // Debugging log
+            } catch (error) {
+                console.error("Failed to fetch blocked domains:", error);
+            }
         }
 
-        function openProxiedUrl() {
-            const input = document.getElementById('urlInput').value.trim().toLowerCase();
-            let embedUrl = "https://rootedhash.github.io/static/embed.html#";
-
-            if (input) {
-                embedUrl += input;
-            } else {
-                embedUrl += "https://rootedhash.github.io/static/embed.html#example.com";
+        function isBlocked(url) {
+            try {
+                const parsedUrl = new URL(url.startsWith("http") ? url : `https://${url}`);
+                console.log("Checking URL:", parsedUrl.hostname); // Debugging log
+                // Match the hostname only against blocked domains
+                return blockedDomains.some(domain => parsedUrl.hostname.includes(domain));
+            } catch (error) {
+                console.error("Invalid URL:", error);
+                return false;
             }
-
-            openInPopup(embedUrl); // Open the iframe in a popup
         }
 
-        function openInPopup(embedUrl) {
+        function processUrl() {
+            const input = document.getElementById("urlInput").value.trim();
+            const feedbackElement = document.getElementById("feedback");
+
+            console.log("User input:", input); // Debugging log
+
+            if (!input.startsWith("http://") && !input.startsWith("https://")) {
+                feedbackElement.style.display = "block";
+                feedbackElement.textContent = "Invalid URL! Please start with 'http://' or 'https://'.";
+                return;
+            }
+
+            if (isBlocked(input)) {
+                feedbackElement.style.display = "none"; // Hide the feedback message
+                showPopup(input); // Show the blocked website popup
+                return;
+            }
+
+            feedbackElement.style.display = "none";
+            openIframe(input);
+        }
+
+        function openIframe(embedUrl) {
             const mainPopup = window.open("", "mainPopup", `width=${screen.availWidth},height=${screen.availHeight},scrollbars=yes,resizable=yes`);
             mainPopup.document.write(`
                 <!DOCTYPE html>
@@ -260,30 +156,41 @@
                 <head>
                     <meta charset="utf-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>proxied page</title>
-                    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/100px-Google_Classroom_Logo.svg.png" type="image/x-icon">
-                    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&wght@500;700&display=swap" rel="stylesheet">
+                    <title>Proxied Page</title>
                     <style>
                         iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
                     </style>
                 </head>
                 <body>
-                    <iframe src="${embedUrl}"></iframe>
+                    <iframe src="https://rootedhash.github.io/static/embed.html#${embedUrl}"></iframe>
                 </body>
                 </html>
             `);
             mainPopup.document.close();
-            mainPopup.moveTo(0, 0);
-            mainPopup.resizeTo(screen.width, screen.height);
-            mainPopup.focus();
         }
 
-        // Function to update the clock on the bottom center
-        setInterval(() => {
-            const now = new Date();
-            const currentTime = now.toLocaleTimeString();
-            document.getElementById('clock').innerText = currentTime;
-        }, 1000);
+        function showPopup(url) {
+            const popup = document.getElementById("popup");
+            const siteName = document.getElementById("blocked-site-name");
+            siteName.textContent = new URL(url).hostname; // Display the blocked website name in the popup
+            popup.style.display = "block"; // Show the popup message
+        }
+
+        function closePopup() {
+            const popup = document.getElementById("popup");
+            popup.style.display = "none"; // Close the popup when the user clicks "Close"
+        }
+
+        // Fetch blocked domains on page load
+        window.onload = fetchBlockedDomains;
+
+        // Automatically check the URL when the user presses Enter
+        document.getElementById("urlInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent form submission
+                processUrl(); // Check the URL and proceed
+            }
+        });
     </script>
 </body>
 </html>
