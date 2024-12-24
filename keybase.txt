@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/infiltrace
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rootedhash.github.io
+  * I am infiltrace (https://keybase.io/infiltrace) on keybase.
+  * I have a public key ASAuUCplXh_BU1z3FO4YvgKSFyLVq7GQ1z4vtnwGB6D5ygo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202e502a655e1fc1535cf714ee18be02921722d5abb190d73e2fb67c0607a0f9ca0a",
+      "host": "keybase.io",
+      "kid": "01202e502a655e1fc1535cf714ee18be02921722d5abb190d73e2fb67c0607a0f9ca0a",
+      "uid": "1fc7a7b1a3fc7978176b5aa30507ae19",
+      "username": "infiltrace"
+    },
+    "merkle_root": {
+      "ctime": 1735074368,
+      "hash": "e2f399095f5c736d31bb984351adccbdeeb6b62964a1c8ed964557a3a5c6618910ea11641e37e7306879b41cebe3cfe9e1410347f1298f740a2867eab0d97131",
+      "hash_meta": "5d325ce4fe0d529c0452c7340d7c78c248089d52ebfe1191e5e791cdd10ef2ba",
+      "seqno": 26403812
+    },
+    "service": {
+      "entropy": "q5nHrEavC1NijMyoOflRI3I4",
+      "hostname": "rootedhash.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.4.0"
+  },
+  "ctime": 1735074443,
+  "expire_in": 504576000,
+  "prev": "9749c55e0c64906b18dacb23a1ffcef6109092c7cf409acdb94487a21cfa3c35",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgLlAqZV4fwVNc9xTuGL4Ckhci1auxkNc+L7Z8Bgeg+coKp3BheWxvYWTESpcCCcQgl0nFXgxkkGsY2ssjof/O9hCQksfPQJrNuUSHohz6PDXEIIK81YGVqP03h9ikjwT4kpvGSauceMmiF7ocagMORQ+uAgHCo3NpZ8RAVCVy5i2vbc8mhJrxsqu9TfZjA12pDBVlAkWPBGaawr5SrhXx2aUlxpM3JV6gG51BEUtns8yL38LBivIFgB+XB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKO+zJJxTUfogrr7MT7lNgV3d5+ggB9/VsV6BKjK2+hco3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/infiltrace
+
+==================================================================
