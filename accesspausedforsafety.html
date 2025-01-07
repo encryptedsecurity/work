@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied</title>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Albert Sans', sans-serif;
+            color: #ffffff;
+            padding: 50px;
+            background-image: url('https://wallpapercave.com/wp/wp8254586.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #333333; /* Fallback for browsers that do not support background images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            max-width: 600px;
+            width: 100%;
+        }
+        .title {
+            font-size: 28px; /* Increased font size */
+            color: #FFFF00;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center; /* Center aligned */
+        }
+        .message, .reason {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        ul.reason {
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        .fetch-reason {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFF00;
+            display: flex;
+            align-items: center;
+        }
+        .fetch-reason span {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title"> 🛜 Paused Access:</div>
+        <div class="message"></div>
+        <div class="reason">Server Maybe Offline check some reasons below
+        <ul class="reason">
+            <li>Under Development & Maintenance</li>
+            <li>ISP or IP Blockage, School Network Restrictions</li>
+            <li>Host has Shutdown Access for everyone for some time.</li>
+            <li>Host  might have shutdown website access for school instruction.</li>
+        </ul>
+        <div class="fetch-reason">Real Reason:<span id="reason-text"></span></div>
+    </div>
+    <script>
+        fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/main/serverstatus.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('reason-text').textContent = data;
+            })
+            .catch(error => {
+                document.getElementById('reason-text').textContent = 'Unable to fetch reason';
+                console.error('Error fetching reason:', error);
+            });
+    </script>
+</body>
+</html>
