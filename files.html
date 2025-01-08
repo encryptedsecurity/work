@@ -25,29 +25,65 @@
     </div>
 
     <script>
-        function runCustomCode(html) {
-            // Remove the existing layout
+        let offCodeRunning = false;
+
+        function runCustomCode(htmlContent, isOn) {
+            // Remove the existing content
             document.body.innerHTML = '';
 
-            // Create a temporary container to hold the fetched content
+            // Create a container to hold the new HTML content
             const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
+            tempDiv.innerHTML = htmlContent;
 
-            // Append the content to the body
+            // Extract and execute scripts from the fetched HTML
+            const scripts = tempDiv.querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                if (script.src) {
+                    newScript.src = script.src;
+                } else {
+                    newScript.text = script.textContent;
+                }
+                document.body.appendChild(newScript);
+                script.remove();
+            });
+
+            // Append the remaining HTML content to the body
             document.body.appendChild(tempDiv);
+
+            if (!isOn) {
+                // Add a listener for the specific key sequence when off code is running
+                offCodeRunning = true;
+                let inputSequence = '';
+                document.addEventListener('keydown', function(event) {
+                    inputSequence += event.key;
+                    if (inputSequence.includes('1234567890')) {
+                        inputSequence = ''; // Reset sequence
+                        if (offCodeRunning) {
+                            offCodeRunning = false;
+                            // Fetch and run the on code
+                            fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/customCodeOn.html')
+                                .then(response => response.text())
+                                .then(html => {
+                                    runCustomCode(html, true);
+                                })
+                                .catch(error => console.error('Error fetching custom code:', error));
+                        }
+                    }
+                });
+            }
         }
 
         fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/enduser.txt')
             .then(response => response.text())
             .then(text => {
-                document.getElementById('status').textContent = 'File fetched successfully';
-
                 if (text.trim() === 'on') {
                     console.log('File status is ON. Fetching custom code...');
                     fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/dontdownloadthis.html')
                         .then(response => response.text())
                         .then(html => {
-                            runCustomCode(html);
+                            runCustomCode(html, true);
                         })
                         .catch(error => {
                             console.error('Error fetching custom code:', error);
@@ -55,10 +91,10 @@
                         });
                 } else if (text.trim() === 'off') {
                     console.log('File status is OFF. Fetching custom code...');
-                    fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/accesspausedforsafety.html')
+                    fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/refs/heads/main/accesspausedforsafety.html)
                         .then(response => response.text())
                         .then(html => {
-                            runCustomCode(html);
+                            runCustomCode(html, false);
                         })
                         .catch(error => {
                             console.error('Error fetching custom code:', error);
