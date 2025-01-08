@@ -33,8 +33,7 @@
         }
         .title {
             font-size: 28px; /* Increased font size */
-            color: #FFFF00;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             font-weight: bold;
             text-align: center; /* Center aligned */
         }
@@ -46,7 +45,7 @@
         ul.reason {
             font-size: 16px;
             font-weight: bold;
-            padding-left: 20px;
+            padding-left: 50px;
         }
         .fetch-reason {
             margin-top: 20px;
@@ -59,20 +58,19 @@
         .fetch-reason span {
             margin-left: 10px;
         }
+        .pass {
+            color: #FFFF00;
+          margin-bottom: 20px;
+    font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title"> 🛜 Paused Access:</div>
-        <div class="message"></div>
-        <div class="reason">Server Maybe Offline check some reasons below
-        <ul class="reason">
-            <li>Under Development & Maintenance</li>
-            <li>ISP or IP Blockage, School Network Restrictions</li>
-            <li>Host has Shutdown Access for everyone for some time.</li>
-            <li>Host  might have shutdown website access for school instruction.</li>
-        </ul>
-        <div class="fetch-reason">Real Reason:<span id="reason-text"></span></div>
+        <div class="title">🚨 Server Paused 🚨</div>
+        <div class="message">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ: Server Access :
+        <div class="pass">ㅤㅤㅤ ㅤㅤㅤㅤㅤㅤㅤㅤㅤ : PAUSED :</div>
+        <p>ㅤ   ㅤㅤㅤ ㅤㅤUnder Development & Maintenance</p>
     </div>
     <script>
         fetch('https://raw.githubusercontent.com/rootedhash/rootedhash/main/serverstatus.txt')
