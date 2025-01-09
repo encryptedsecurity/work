@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             font-family: 'Albert Sans', sans-serif;
-            background-image: url('https://wallpapers.com/images/featured/gtr-car-sywquudklk60z4sd.jpg');
+            background-image: url('https://images.pexels.com/photos/9951169/pexels-photo-9951169.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -26,25 +26,25 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 90%;
-            max-width: 500px;
+            width: 500%;
+            max-width: 798px;
             background-color: rgba(0, 0, 0, 0.9);
-            border-radius: 25px;
-            padding: 20px;
+            border-radius: 45px;
+            padding: 10px;
             text-align: center;
             color: white;
         }
 
         .input-field {
-            width: 100%;
+            width: 101%;
             padding: 10px;
             border: none;
-            font-size: 16px;
+            font-size: 12px;
             margin-bottom: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #000000;
             color: white;
             text-align: center;
-            border-radius: 10px;
+            border-radius: 0px;
         }
 
         .input-field:focus {
@@ -90,12 +90,12 @@
 </head>
 <body>
     <div class="container">
-        <input id="urlInput" class="input-field" type="text" placeholder="Enter URL (e.g., https://example.com)">
+        <input id="urlInput" class="input-field" type="text" placeholder="enter url into this box">
     </div>
 
     <div id="feedback" class="blocked-message" style="display: none;"></div>
     <div id="popup" class="popup-message">
-        <p>The website <span id="blocked-site-name"></span> is blocked. If you think this is a mistake, contact @infiltrace on Discord.</p>
+        <p>The website <span id="blocked-site-name"></span> is blocked. This is proably due to Restrictions for the Provider</p>
         <button onclick="closePopup()">Close</button>
     </div>
 
